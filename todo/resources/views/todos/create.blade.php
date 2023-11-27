@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Create a todo</h1>
+    <h1 class="font-bold text-6xl mt-8">Create a todo</h1>
 
     <div>
         @if($errors->any())
@@ -18,17 +18,25 @@
         </ul>
     </div>
         @endif
-
-    <form method="post" action="{{route('todo.store')}}">
-        @csrf 
-        @method('post')
-        <label for="">Title</label>
-        <input type="text" name="title" placeholder="Title">
-        <label for="">Description</label>
-        <input type="text" name="description" placeholder="Description">
-        <label for="">Deadline</label>
-        <input type="time" name="deadline" placeholder="Deadline">
-        <input type="submit" value="save todo">
-    </form>
+    <div class="bg-gray-800 p-11 rounded-xl">
+        <form method="post" action="{{route('todo.store')}}">
+            @csrf 
+            @method('post')
+            <div class="flex flex-col">
+                    <label for="" class="p-5 font-bold text-2xl text-white self-start ">Title</label>
+                    <input class="px-8 py-3 mb-5 block rounded-md" type="text" name="title" placeholder="Title">
+                </div>
+                <div class="flex flex-col">
+                    <label for="" class="p-5 font-bold text-2xl text-white ">Description</label>
+                    <input class="px-8 py-3 mb-5 block rounded-md " type="text" name="description" placeholder="Description">
+                </div>
+                <div class="flex flex-col"> 
+                    <label for="" class="p-5 font-bold text-2xl text-white ">Deadline</label>
+                    <input class="px-8 py-3 mb-5 block rounded-md " type="time" name="deadline" placeholder="Deadline">
+                </div>
+                <input type="submit" value="Create Todo" class="bg-green-900 inline-block px-5 py-3 text-sm rounded-md text-white font-bold hover:opacity-80 transition-all">
+        </form>
+    </div>
+    
 </body>
 </html>
